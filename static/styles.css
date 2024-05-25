@@ -71,6 +71,9 @@ body {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    background-image: url('https://forums.flightsimulator.com/uploads/default/original/4X/3/3/d/33dd23f030efa8c5d6b694f7cfa445699eee329e.jpeg'); /* Background image URL */
+    background-size: cover; /* Make sure the image covers the entire area */
+    background-position: center; /* Center the image */
 }
 
 .top-bar {
@@ -105,6 +108,9 @@ body {
 .content {
     padding: 20px;
     text-align: center;
+    flex-grow: 1; /* Make sure content section grows to fill available space */
+    background: rgba(0, 0, 0, 0.5); /* Optional: Add a semi-transparent background to improve text readability */
+    border-radius: 10px; /* Optional: Rounded corners for the content area */
 }
 
 h2 {
