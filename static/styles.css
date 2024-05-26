@@ -116,3 +116,44 @@ body {
 h2 {
     margin-top: 50px;
 }
+.announcement-box {
+    display: flex;
+    align-items: center;
+    background-color: #000; /* Set background color to black */
+    border-radius: 8px; /* Adjust border radius to make it square */
+    padding: 10px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.announcement-box img {
+    max-width: 100px;
+    margin-right: 10px;
+}
+
+.announcement-text {
+    flex: 1;
+}
+
+.announcement-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #fff; /* Set text color to white */
+}
+
+#searchResults {
+    list-style-type: none;
+    padding: 0;
+}
+
+#searchResults li {
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+}
+
+#searchResults li.no-results {
+    background-color: #f8d7da; /* Red background color */
+    color: #721c24; /* Dark text color */
+}

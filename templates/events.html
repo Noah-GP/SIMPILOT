@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sim Pilot - Events</title>
+    <title>Events - Sim Pilot</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Additional styles for events page */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .button-container .btn {
+            margin: 0 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -21,9 +32,13 @@
             </header>
             <section class="content">
                 <h2>Events</h2>
-                <!-- Events content goes here -->
+                <div class="button-container">
+                    <a href="/browse_events" class="btn">Browse Events</a>
+                    <a href="/schedule_event" class="btn">Schedule Event</a>
+                </div>
             </section>
         </main>
     </div>
 </body>
 </html>
+

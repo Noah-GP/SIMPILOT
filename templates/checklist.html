@@ -22,9 +22,28 @@
             </header>
             <section class="content">
                 <h2>Checklist</h2>
-                <!-- Checklist content goes here -->
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Enter aircraft name..." onkeyup="searchAircraft()">
+                </div>
+                <ul id="searchResults"></ul>
             </section>
         </main>
     </div>
+    <script>
+        async function searchAircraft() {
+            const query = document.getElementById('searchInput').value;
+            const response = await fetch(`/search?query=${query}`);
+            const results = await response.json();
+
+            const resultsList = document.getElementById('searchResults');
+            resultsList.innerHTML = '';
+
+            results.forEach(result => {
+                const li = document.createElement('li');
+                li.textContent = `${result.aircraft} - ${result.item}`;
+                resultsList.appendChild(li);
+            });
+        }
+    </script>
 </body>
 </html>

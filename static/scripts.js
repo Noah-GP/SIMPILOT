@@ -6,3 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = '/news';  // Navigate to the news page
     });
 });
+if (results.length === 0) {
+    const noResultsMessage = document.createElement('li');
+    noResultsMessage.textContent = 'No results found.';
+    noResultsMessage.classList.add('no-results'); // Add class to style the message
+    resultsList.appendChild(noResultsMessage);
+}

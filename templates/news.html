@@ -6,6 +6,7 @@
     <title>Sim Pilot - News</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='scripts.js') }}" defer></script>
 </head>
 <body>
     <div class="container">
@@ -21,7 +22,16 @@
             </header>
             <section class="content">
                 <h2>Latest News</h2>
-                <!-- News content goes here -->
+                <!-- Your news content goes here -->
+                <div class="announcement-box">
+                    <a href="https://www.flightsimulator.com/sim-update-15/">
+                        <img src="https://fseimg.imgix.net/2024/05/442483391_986824490114444_8548355666745308723_n.jpg?auto=compress%2Cformat&q=90" alt="Sim Update Image">
+                    </a>
+                    <div class="announcement-text">
+                        <p>Sim update 15 is out!</p>
+                        <p>For more details, visit: <a href="https://www.flightsimulator.com/sim-update-15/">https://www.flightsimulator.com/sim-update-15/</a></p>
+                    </div>
+                </div>
             </section>
         </main>
     </div>

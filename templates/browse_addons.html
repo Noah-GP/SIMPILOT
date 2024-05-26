@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Add-ons - Sim Pilot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .addon-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .addon-card {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .addon-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        .addon-card h3, .addon-card p {
+            color: #000; /* Change text to black */
+        }
+        .addon-card h3 {
+            margin-top: 0;
+            font-size: 1.25em;
+        }
+        .addon-card p {
+            margin: 10px 0;
+        }
+        .addon-card a {
+            display: block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .addon-card a:hover {
+            text-decoration: underline;
+        }
+        .search-form {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .search-form input[type="text"] {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            width: 300px;
+            margin-right: 10px;
+        }
+        .search-form button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            {% include 'sidebar.html' %}
+        </aside>
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="top-bar-right">
+                    <button class="btn login-btn"><i class="fas fa-sign-in-alt"></i> Login</button>
+                    <button class="btn signup-btn"><i class="fas fa-user-plus"></i> Sign Up</button>
+                </div>
+            </header>
+            <section class="content">
+                <h2>Browse Add-ons</h2>
+                <form class="search-form" method="POST" action="{{ url_for('browse_addons') }}">
+                    <input type="text" name="search_query" placeholder="Search add-ons..." value="{{ search_query if search_query else '' }}">
+                    <button type="submit">Search</button>
+                </form>
+                <div class="addon-container">
+                    {% for addon in addons %}
+                        <div class="addon-card">
+                            <h3>{{ addon.name }}</h3>
+                            <p><strong>Category:</strong> {{ addon.category }}</p>
+                            <p>{{ addon.description }}</p>
+                            <a href="{{ addon.link }}" target="_blank">Download</a>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% if addons|length == 0 %}
+                    <p>No results found.</p>
+                {% endif %}
+            </section>
+        </main>
+    </div>
+</body>
+</html>
